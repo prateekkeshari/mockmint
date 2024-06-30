@@ -86,7 +86,7 @@ export function MultiSelect({ options, selectedValues, onChange }: MultiSelectPr
           onKeyPress={handleKeyPress}
           className="w-full pr-16"
         />
-        <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground text-sm">⌘ K</span>
+        <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground text-sm hidden sm:inline-block">⌘ K</span>
       </div>
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild>
