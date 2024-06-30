@@ -35,7 +35,7 @@ export default function SEOContent() {
                 <ol className="list-decimal list-inside mt-2">
                   <li>Choose the types of data you need</li>
                   <li>Set the number of records you want</li>
-                  <li>Click "Generate"</li>
+                  <li>Click &quot;Generate&quot;</li>
                   <li>Export your mock data in CSV or JSON format</li>
                 </ol>
               </AccordionContent>
@@ -59,11 +59,11 @@ export default function SEOContent() {
               <AccordionTrigger>Why should I use Mockmint for generating mock data?</AccordionTrigger>
               <AccordionContent>
                 <ul className="list-disc list-inside">
-                  <li>It's fast: Generate thousands of records in seconds</li>
-                  <li>It's easy: No coding required, just point and click</li>
-                  <li>It's flexible: Choose from a wide range of data types</li>
-                  <li>It's realistic: Our algorithms create believable mock data</li>
-                  <li>It's free: No sign-up or payment required</li>
+                  <li>It&apos;s fast: Generate thousands of records in seconds</li>
+                  <li>It&apos;s easy: No coding required, just point and click</li>
+                  <li>It&apos;s flexible: Choose from a wide range of data types</li>
+                  <li>It&apos;s realistic: Our algorithms create believable mock data</li>
+                  <li>It&apos;s free: No sign-up or payment required</li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
@@ -83,9 +83,9 @@ export default function SEOContent() {
             </AccordionItem>
 
             <AccordionItem value="item-6">
-              <AccordionTrigger>Is Mockmint's generated data safe to use?</AccordionTrigger>
+              <AccordionTrigger>Is Mockmint&apos;s generated data safe to use?</AccordionTrigger>
               <AccordionContent>
-                Yes, Mockmint generates completely fake data and it is based on fakerjs.dev. It's not based on real information. This makes it safe to use for testing and development without privacy concerns.
+                Yes, Mockmint generates completely fake data and it is based on fakerjs.dev. It&apos;s not based on real information. This makes it safe to use for testing and development without privacy concerns.
               </AccordionContent>
             </AccordionItem>
 
@@ -113,7 +113,7 @@ export default function SEOContent() {
             <AccordionItem value="item-10">
               <AccordionTrigger>Can I use Mockmint for commercial projects?</AccordionTrigger>
               <AccordionContent>
-                Absolutely! Mockmint can be used for both personal and commercial projects without any restrictions. It's a valuable tool for businesses of all sizes.
+                Absolutely! Mockmint can be used for both personal and commercial projects without any restrictions. It&apos;s a valuable tool for businesses of all sizes.
               </AccordionContent>
             </AccordionItem>
 
@@ -129,13 +129,13 @@ export default function SEOContent() {
             <AccordionItem value="item-12">
               <AccordionTrigger>Is there a limit to how much data I can generate with Mockmint?</AccordionTrigger>
               <AccordionContent>
-                Mockmint is designed to handle large data generation tasks. While there's no hard limit, we recommend generating data in batches for the best performance. If you need extremely large datasets, consider breaking your request into multiple generations.
+                Mockmint is designed to handle large data generation tasks. While there&apos;s no hard limit, we recommend generating data in batches for the best performance. If you need extremely large datasets, consider breaking your request into multiple generations.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
 
           <p className="mt-6">
-            Start using Mockmint today and see how easy it can be to generate high-quality mock data for your projects. Whether you're a developer, tester, designer, or data analyst, Mockmint has the tools you need to work more efficiently.
+            Start using Mockmint today and see how easy it can be to generate high-quality mock data for your projects. Whether you&apos;re a developer, tester, designer, or data analyst, Mockmint has the tools you need to work more efficiently.
           </p>
         </CardContent>
       </Card>
