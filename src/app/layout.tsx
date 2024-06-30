@@ -7,12 +7,12 @@ import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Mockmint",
-  description: "Create mock data for your projects quickly and easily. Mockmint helps you generate fake data for testing and development. Save time and improve your workflow this easy-to-use mock data generator.",
-  keywords: "mock data, data generator, fake data, test data, development tools",
+  title: "Mockmint - Mock Data Generator",
+  description: "Create mock data for your projects quickly and easily. Mockmint helps you generate fake data for testing and development. Save time and improve your workflow with this easy-to-use mock data generator.",
+  keywords: "mock data, data generator, fake data, test data, development tools, mock data generator, mock data tool",
   authors: [{ name: "Prateek Keshari" }],
   openGraph: {
-    title: "Mockmint – mock data generator",
+    title: "Mockmint – Mock Data Generator",
     description: "Generate mock data for your projects quickly and easily",
     type: "website",
     url: "https://mockmint.prateekkeshari.com",
@@ -43,6 +43,26 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://mockmint.prateekkeshari.com" />
         <link rel="icon" href="/mockmint.svg" type="image/svg+xml" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Mockmint",
+              "url": "https://mockmint.prateekkeshari.com",
+              "description": "Create mock data for your projects quickly and easily. Mockmint helps you generate fake data for testing and development. Save time and improve your workflow with this easy-to-use mock data generator.",
+              "author": {
+                "@type": "Person",
+                "name": "Prateek Keshari"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Mockmint"
+              }
+            })
+          }}
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider

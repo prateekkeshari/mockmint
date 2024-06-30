@@ -1,4 +1,5 @@
-'use client'
+"use client"
+
 import { useState, useEffect, useCallback } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Toaster } from "@/components/ui/toaster"
@@ -8,12 +9,11 @@ import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import { MultiSelect } from "@/components/MultiSelect"
 import { GeneratedDataDisplay } from "@/components/GeneratedDataDisplay"
-
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { motion, AnimatePresence } from "framer-motion"
 import { Maximize2, Minimize2 } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-
+import SEOContent from "@/components/SEOContent"
 
 export default function Home() {
   const [selectedTypes, setSelectedTypes] = useState<string[]>(() => {
@@ -50,7 +50,6 @@ export default function Home() {
     handleGenerate()
   }, [handleGenerate, selectedTypes, count])
 
-  
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') {
@@ -67,7 +66,7 @@ export default function Home() {
   useEffect(() => {
     localStorage.setItem('selectedTypes', JSON.stringify(selectedTypes))
   }, [selectedTypes])
-  
+
   useEffect(() => {
     localStorage.setItem('count', JSON.stringify(count))
   }, [count])
@@ -187,7 +186,7 @@ export default function Home() {
             )}
             <AnimatePresence mode="wait">
               <motion.div
-                className="flex-1 overflow-y-auto relative"
+                className="flex-1 overflow-y-auto relative max-h-[70vh]" // Added max-height
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -241,12 +240,13 @@ export default function Home() {
           </motion.div>
         </motion.div>
         {!isMaximized && (
-          <footer className="w-full p-4 text-sm text-muted-foreground text-center bg-background">
+          <footer className="w-full p-4 text-sm text-muted-foreground text-center bg-background flex-shrink-0 mt-2"> 
             Check out <a href="https://scoop.prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-[#FE6228] transition-colors duration-200">Scoop</a> – a UTM, Meta preview, and QR code generator.
             <br />
             Made by <a href="https://prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-[#FE6228] transition-colors duration-200">Prateek Keshari</a> in Berlin.
           </footer>
         )}
+        <SEOContent />
       </motion.main>
       <Toaster />
     </TooltipProvider>
