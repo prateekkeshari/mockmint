@@ -90,18 +90,17 @@ export default function Home() {
   return (
     <TooltipProvider>
       <motion.main
-        className={`flex flex-col min-h-screen bg-background text-foreground ${isMaximized ? 'p-0' : 'p-4 sm:p-10'}`}
+        className="flex flex-col h-screen bg-background text-foreground"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
         <motion.div
-          className={`${isMaximized ? 'w-full h-full' : 'w-full max-w-3xl mx-auto'} flex flex-col flex-grow ${isMaximized ? 'p-4' : 'p-4 sm:p-10'}`}
+          className={`${isMaximized ? 'w-full h-full' : 'w-full max-w-2xl mx-auto'} flex flex-col flex-grow ${isMaximized ? 'p-4' : 'p-4 sm:p-10'}`}
           layout
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-        </motion.div>
           {!isMaximized && (
             <Card className="shadow-xs">
               <CardHeader>
@@ -146,89 +145,89 @@ export default function Home() {
             layout
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-          {!isMaximized && (
-            <div className="space-y-6 mb-4">
-              <div className="flex items-center space-x-4 justify-center">
-                <MultiSelect
-                  options={availableTypes}
-                  selectedValues={selectedTypes}
-                  onChange={(newSelectedTypes) => {
-                    setSelectedTypes(newSelectedTypes)
+            {!isMaximized && (
+              <div className="space-y-6 mb-4">
+                <div className="flex items-center space-x-4 justify-center">
+                  <MultiSelect
+                    options={availableTypes}
+                    selectedValues={selectedTypes}
+                    onChange={(newSelectedTypes) => {
+                      setSelectedTypes(newSelectedTypes)
+                      setIsInitialLoad(false)
+                    }}
+                  />
+                  <Button onClick={() => {
                     setIsInitialLoad(false)
-                  }}
-                />
-                <Button onClick={() => {
-                  setIsInitialLoad(false)
-                  handleGenerate()
-                }}>
-                  Randomize <span className="ml-2 text-muted-foreground hidden sm:inline">⌘↵</span>
-                </Button>
+                    handleGenerate()
+                  }}>
+                    Randomize <span className="ml-2 text-muted-foreground hidden sm:inline">⌘↵</span>
+                  </Button>
+                </div>
               </div>
-            </div>
-          )}
-          <AnimatePresence mode="wait">
-            <motion.div
-              className="flex-1 overflow-y-auto relative"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{
-                duration: 0.4,
-                ease: "easeInOut"
-              }}
-              style={{
-                width: '100%',
-                height: isMaximized ? '100vh' : '60vh',
-                maxHeight: isMaximized ? '100vh' : '60vh',
-                backdropFilter: 'blur(50px)',
-              }}
-            >
-              {isLoading ? (
-                <GeneratedDataDisplay
-                  data={{
-                    ...generatedData,
-                    ...Object.fromEntries(selectedTypes.map(type => [type, ['']]))
-                  }}
-                  onExport={handleExport}
-                  count={count}
-                  setCount={setCount}
-                />
-              ) : (
-                <GeneratedDataDisplay
-                  data={generatedData}
-                  onExport={handleExport}
-                  count={count}
-                  setCount={setCount}
-                />
-              )}
-              {isMaximized && (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="absolute top-2 right-2"
-                      onClick={toggleMaximize}
-                    >
-                      <Minimize2 className="h-4 w-4" />
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Minimize table</p>
-                  </TooltipContent>
-                </Tooltip>
-              )}
-            </motion.div>
-          </AnimatePresence>
+            )}
+            <AnimatePresence mode="wait">
+              <motion.div
+                className="flex-1 overflow-y-auto relative"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.4,
+                  ease: "easeInOut"
+                }}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  backdropFilter: 'blur(50px)',
+                }}
+              >
+                {isLoading ? (
+                  <GeneratedDataDisplay
+                    data={{
+                      ...generatedData,
+                      ...Object.fromEntries(selectedTypes.map(type => [type, ['']]))
+                    }}
+                    onExport={handleExport}
+                    count={count}
+                    setCount={setCount}
+                  />
+                ) : (
+                  <GeneratedDataDisplay
+                    data={generatedData}
+                    onExport={handleExport}
+                    count={count}
+                    setCount={setCount}
+                  />
+                )}
+                {isMaximized && (
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="absolute top-2 right-2"
+                        onClick={toggleMaximize}
+                      >
+                        <Minimize2 className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Minimize table</p>
+                    </TooltipContent>
+                  </Tooltip>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
         </motion.div>
+        {!isMaximized && (
+          <footer className="w-full p-4 text-sm text-muted-foreground text-center bg-background">
+            Check out <a href="https://scoop.prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-[#FE6228] transition-colors duration-200">Scoop</a> – a UTM, Meta Tags, and QR code generator.
+            <br />
+            Made by <a href="https://prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-[#FE6228] transition-colors duration-200">Prateek Keshari</a> in Berlin.
+          </footer>
+        )}
       </motion.main>
-      {!isMaximized && (
-        <footer className="w-full p-4 text-sm text-muted-foreground text-center bg-background mt-auto">
-          Check out <a href="https://scoop.prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-[#FE6228] transition-colors duration-200">Scoop</a> – a UTM, Meta Tags, and QR code generator.
-          <br />
-          Made by <a href="https://prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-[#FE6228] transition-colors duration-200">Prateek Keshari</a> in Berlin.
-        </footer>
-      )}
       <Toaster />
     </TooltipProvider>
   )
