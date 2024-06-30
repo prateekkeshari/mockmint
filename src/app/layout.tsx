@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Mockmint",
-  description: "Generate mock data for your projects quickly and easily",
+  description: "Create mock data for your projects quickly and easily. Mockmint helps you generate fake data for testing and development. Save time and improve your workflow this easy-to-use mock data generator.",
   keywords: "mock data, data generator, fake data, test data, development tools",
   authors: [{ name: "Prateek Keshari" }],
   openGraph: {
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://mockmint.prateekkeshari.com",
     images: [
-      "https://mockmint.prateekkeshari.com/og-image.png",
       "https://mockmint.prateekkeshari.com/mockmint-og.jpg"
     ],
   },
