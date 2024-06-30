@@ -23,7 +23,13 @@ export default function Home() {
     }
     return ['Name', 'Email', 'Avatar URL', 'Hex Color']
   })
-  const [count, setCount] = useState<number>(7)
+  const [count, setCount] = useState<number>(() => {
+    if (typeof window !== 'undefined') {
+      const savedCount = localStorage.getItem('count')
+      return savedCount ? JSON.parse(savedCount) : 7
+    }
+    return 7
+  })
   const [generatedData, setGeneratedData] = useState<Record<string, string[]>>({})
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isInitialLoad, setIsInitialLoad] = useState<boolean>(true)
@@ -44,6 +50,7 @@ export default function Home() {
     handleGenerate()
   }, [handleGenerate, selectedTypes, count])
 
+  
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key === 'Enter') {
@@ -60,6 +67,10 @@ export default function Home() {
   useEffect(() => {
     localStorage.setItem('selectedTypes', JSON.stringify(selectedTypes))
   }, [selectedTypes])
+  
+  useEffect(() => {
+    localStorage.setItem('count', JSON.stringify(count))
+  }, [count])
 
   const availableTypes = Object.values(dataTypeCategories).flat().map(type => ({ value: type, label: type }))
 
