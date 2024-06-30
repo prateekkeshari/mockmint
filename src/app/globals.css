@@ -1,33 +1,102 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+ 
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 24 9.8% 10%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    --primary: 60 9.1% 97.8%;
+    --primary-foreground: 24 9.8% 10%;
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 24 5.7% 82.9%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
   }
-}
+
+  .custom-number-input {
+    -moz-appearance: textfield; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none; /* Standard */
+    background: none; /* Remove default background */
+    border: none; /* Remove default border */
+    padding: 0.5rem 0; /* Add vertical padding only */
+    text-align: center; /* Center text */
+    outline: none; /* Remove focus outline */
+    font-size: 0.875rem; /* Make text size small */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    border-radius: 0.5rem; /* Increased rounded corners */
+    margin: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    width: 100%; /* Make the input take full width of its container */
+  }
+  
+  .custom-number-input::-webkit-outer-spin-button,
+  .custom-number-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .custom-number-input::-moz-inner-spin-button {
+    -moz-appearance: none;
+    margin: 0;
+  }
+
+  .custom-number-input:focus {
+    outline: 1px solid rgba(255, 255, 255, 0.3); /* Subtle white outline */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), /* Subtle white glow */
+                inset 0 0 2px rgba(255, 255, 255, 0.1), /* Subtle inner glow */
+                0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow on focus */
+    backdrop-filter: blur(4px); /* Reduced blur effect */
+    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+    background-color: rgba(255, 255, 255, 0.05); /* Very slight background highlight */
+    transform: scale(1.02); /* Reduced zoom effect */
+    border-radius: 0.5rem; /* Maintain increased rounded corners on focus */
+  }
