@@ -227,7 +227,9 @@ export default function Home() {
         </motion.div>
         {!isMaximized && (
           <footer className="fixed bottom-0 left-0 right-0 p-4 text-sm text-muted-foreground text-center bg-background">
-            Made by <a href="https://prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#FE6228] transition-colors duration-200">Prateek Keshari</a> in Berlin.
+            Check out <a href="https://scoop.prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-[#FE6228] transition-colors duration-200">Scoop</a> – a UTM, Meta Tags, and QR code generator.
+            <br />
+            Made by <a href="https://prateekkeshari.com" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:text-[#FE6228] transition-colors duration-200">Prateek Keshari</a> in Berlin.
           </footer>
         )}
         <Toaster />
