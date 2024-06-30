@@ -1,5 +1,4 @@
-"use client"
-
+'use client'
 import { useState, useEffect, useCallback } from "react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Toaster } from "@/components/ui/toaster"
@@ -9,15 +8,21 @@ import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import { MultiSelect } from "@/components/MultiSelect"
 import { GeneratedDataDisplay } from "@/components/GeneratedDataDisplay"
-import { Input } from "@/components/ui/input"
+
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { motion, AnimatePresence } from "framer-motion"
 import { Maximize2, Minimize2 } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { Separator } from "@/components/ui/separator"
+
 
 export default function Home() {
-  const [selectedTypes, setSelectedTypes] = useState<string[]>(['Name', 'Email', 'Avatar URL', 'Hex Color'])
+  const [selectedTypes, setSelectedTypes] = useState<string[]>(() => {
+    if (typeof window !== 'undefined') {
+      const savedTypes = localStorage.getItem('selectedTypes')
+      return savedTypes ? JSON.parse(savedTypes) : ['Name', 'Email', 'Avatar URL', 'Hex Color']
+    }
+    return ['Name', 'Email', 'Avatar URL', 'Hex Color']
+  })
   const [count, setCount] = useState<number>(7)
   const [generatedData, setGeneratedData] = useState<Record<string, string[]>>({})
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -51,6 +56,10 @@ export default function Home() {
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [handleGenerate])
+
+  useEffect(() => {
+    localStorage.setItem('selectedTypes', JSON.stringify(selectedTypes))
+  }, [selectedTypes])
 
   const availableTypes = Object.values(dataTypeCategories).flat().map(type => ({ value: type, label: type }))
 
