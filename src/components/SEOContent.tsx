@@ -62,7 +62,6 @@ export default function SEOContent() {
                   <li>It&apos;s fast: Generate thousands of records in seconds</li>
                   <li>It&apos;s easy: No coding required, just point and click</li>
                   <li>It&apos;s flexible: Choose from a wide range of data types</li>
-                  <li>It&apos;s realistic: Our algorithms create believable mock data</li>
                   <li>It&apos;s free: No sign-up or payment required</li>
                 </ul>
               </AccordionContent>
