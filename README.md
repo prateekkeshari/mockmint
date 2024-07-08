@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mockmint
 
-## Getting Started
+Mockmint is a powerful and easy-to-use mock data generator for developers, testers, and designers. It allows you to quickly generate a wide range of fake data for testing and development purposes. With Mockmint, you can save time and improve your workflow by generating high-quality mock data in seconds.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Wide Range of Data Types**: Generate personal information, business data, financial information, web data, and more.
+- **Customizable**: Specify formats, ranges, and patterns for many data types to match your specific needs.
+- **Export Options**: Export your generated data in CSV or JSON format.
+- **User-Friendly Interface**: No coding required, just point and click.
+- **Free to Use**: No sign-up or payment required.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Data Generation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The data generation logic is handled by the `generateRandomData` function in the `dataGenerator` module. This function uses the `faker` library to generate random data based on the specified type and count.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Export Functions
 
-## Learn More
+The `exportToCSV` and `exportToJSON` functions are used to export the generated data in CSV and JSON formats, respectively.
 
-To learn more about Next.js, take a look at the following resources:
+## Components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Home Component
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The Home component is the main entry point of the application. It handles the state management and rendering of the UI.
 
-## Deploy on Vercel
+### GeneratedDataDisplay Component
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The GeneratedDataDisplay component is responsible for displaying the generated data in a table format. It also provides options to copy data to the clipboard and export data in CSV or JSON format.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### SEOContent Component
+
+The SEOContent component provides additional information about Mockmint, including FAQs and usage instructions.
+
+## Styling
+
+The application uses Tailwind CSS for styling. Global styles are defined in the `globals.css` file.
+
+## Contributing
+
+I welcome contributions to Mockmint! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+---
+
+Made by [Prateek Keshari](https://prateekkeshari.com) in Berlin. Check out [Scoop](https://scoop.prateekkeshari.com) – a UTM, Meta preview, and QR code generator.
